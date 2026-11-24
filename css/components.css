@@ -1,0 +1,111 @@
+
+/* =========================================
+   OMNIPOS — COMPONENT SYSTEM
+   ========================================= */
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.product-tile:active {
+  transform: scale(.985);
+}
+
+/* TABLE CUSTOMER */
+
+.table-person {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.person-dot {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: var(--surface3);
+  border-radius: 9px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* ACTION LINKS */
+
+.action-link {
+  background: none;
+  border: 0;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.action-link.danger {
+  color: var(--red);
+}
+
+/* PRODUCT IMAGES */
+
+.product-thumb {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--surface3);
+}
+
+/* PAYMENT IDENTIFIERS */
+
+.payment-code {
+  font-family: monospace;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: .4px;
+}
+
+.pill-method {
+  border-radius: 20px;
+  background: var(--surface3);
+  padding: 5px 8px;
+  font-size: 9px;
+}
+
+/* STATUS */
+
+.status {
+  display: inline-flex;
+  padding: 4px 7px;
+  border-radius: 20px;
+  font-size: 9px;
+  background: #36d6a51a;
+  color: var(--accent);
+}
+
+.status.warn {
+  background: #f5b95520;
+  color: var(--amber);
+}
+
+.status.bad {
+  background: #ff727c1c;
+  color: var(--red);
+}
+
+.stock-tag {
+  display: inline-flex;
+  padding: 4px 7px;
+  border-radius: 20px;
+  font-size: 9px;
+  background: #36d6a51a;
+  color: var(--accent);
+}
+
+.warning-text {
+  color: var(--amber);
+}
+
+.muted-cell {
+  color: var(--muted);
+}
