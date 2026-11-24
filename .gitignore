@@ -1,0 +1,28 @@
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# IDE configuration
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+*.tmp
+npm-debug.log*
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Generated exports
+*.csv
+*.pdf
+
+# Temporary files
+temp/
+tmp/
+.cache/
