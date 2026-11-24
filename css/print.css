@@ -1,0 +1,75 @@
+
+/* =========================================
+   OMNIPOS — PRINT-READY RECEIPTS
+   ========================================= */
+
+@media print {
+
+  @page {
+    size: 80mm auto;
+    margin: 3mm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .app-shell,
+  .toast-stack,
+  .modal-backdrop {
+    display: none !important;
+  }
+
+  .receipt-print {
+    display: block !important;
+    width: 76mm;
+    margin: 0 auto;
+    padding: 4mm;
+    color: #111;
+    font: 11px Arial, sans-serif;
+  }
+
+  .receipt-print h2 {
+    text-align: center;
+    font-size: 17px;
+    margin: 0 0 4px;
+  }
+
+  .receipt-print p {
+    text-align: center;
+    font-size: 10px;
+    margin: 3px 0;
+  }
+
+  .receipt-print hr {
+    border: 0;
+    border-top: 1px dashed #777;
+    margin: 10px 0;
+  }
+
+  .receipt-print table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .receipt-print td {
+    padding: 4px 0;
+    border: 0;
+    font-size: 10px;
+  }
+
+  .receipt-print .right {
+    text-align: right;
+  }
+
+  .receipt-print .grand {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .receipt-print .center {
+    text-align: center;
+  }
+
+}
