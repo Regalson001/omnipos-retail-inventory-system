@@ -1,0 +1,112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #e8edf5;
+  background: #0b1220;
+
+  --bg: #0b1220;
+  --surface: #111c2d;
+  --surface2: #172438;
+  --surface3: #1c2b41;
+
+  --line: #26364c;
+  --text: #e8edf5;
+  --muted: #8fa0b7;
+
+  --accent: #36d6a5;
+  --accent2: #19b889;
+
+  --blue: #6da7ff;
+  --amber: #f5b955;
+  --red: #ff727c;
+
+  --shadow: 0 18px 50px #0003;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #36d6a555;
+}
+
+/* LIGHT MODE */
+
+body.light {
+  --bg: #f3f6fa;
+  --surface: #ffffff;
+  --surface2: #f6f8fb;
+  --surface3: #edf2f7;
+
+  --line: #e1e7ef;
+  --text: #172437;
+  --muted: #718096;
+
+  --shadow: 0 14px 36px #23334a12;
+}
+
+/* GLOBAL UTILITIES */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.positive {
+  color: var(--accent) !important;
+}
+
+.danger-text {
+  color: var(--red) !important;
+}
+
+.eyebrow,
+.nav-label {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.empty-state {
+  padding: 34px 12px;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.empty-state small {
+  font-size: 12px;
+}
