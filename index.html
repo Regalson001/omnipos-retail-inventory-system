@@ -1,0 +1,721 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="OmniPOS — Retail, inventory and customer credit management system.">
+
+  <title>OmniPOS — Retail Command Center</title>
+
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/print.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <a class="brand" href="#">
+      <img src="assets/logo.svg" alt="OmniPOS logo">
+
+      <span>
+        <b>omni<span>pos</span></b>
+        <small>RETAIL COMMAND</small>
+      </span>
+    </a>
+
+    <div class="store-switch">
+      <span class="store-avatar">N</span>
+
+      <span>
+        <b>Northstar Market</b>
+        <small>Westlands · Nairobi</small>
+      </span>
+
+      <span class="chevron">⌄</span>
+    </div>
+
+    <p class="nav-label">WORKSPACE</p>
+
+    <nav class="nav">
+
+      <button class="nav-item active" data-view="overview">
+        <i>▦</i> Overview
+      </button>
+
+      <button class="nav-item" data-view="checkout">
+        <i>▣</i> Point of sale
+      </button>
+
+      <button class="nav-item" data-view="payments">
+        <i>↗</i> M-Pesa feed
+        <span class="nav-count" id="paymentCount">0</span>
+      </button>
+
+      <button class="nav-item" data-view="inventory">
+        <i>▤</i> Inventory
+      </button>
+
+      <button class="nav-item" data-view="customers">
+        <i>♙</i> Customers & credit
+      </button>
+
+      <button class="nav-item" data-view="analytics">
+        <i>▥</i> Analytics
+      </button>
+
+    </nav>
+
+    <p class="nav-label">SYSTEM</p>
+
+    <div class="sidebar-bottom">
+
+      <div class="sync-card">
+        <div class="sync-icon">⟳</div>
+
+        <div>
+          <b>Local workspace</b>
+          <small id="queueLabel">All changes saved</small>
+        </div>
+      </div>
+
+      <button class="nav-item" id="themeToggle">
+        <i>◐</i> Toggle appearance
+      </button>
+
+      <div class="user-card">
+        <div class="user-avatar">SO</div>
+
+        <span>
+          <b>Store Admin</b>
+          <small>Administrator</small>
+        </span>
+
+        <button id="cashierEdit" title="Change cashier">⋯</button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN APPLICATION -->
+  <main class="main">
+
+    <header class="topbar">
+
+      <div class="topbar-left">
+
+        <button class="icon-btn mobile-menu" id="menuToggle">
+          ☰
+        </button>
+
+        <div>
+          <div class="eyebrow">TUESDAY, 24 NOVEMBER 2026</div>
+
+          <h1 id="pageTitle">
+            Good afternoon, Store Admin <span>✦</span>
+          </h1>
+        </div>
+
+      </div>
+
+      <div class="top-actions">
+
+        <div class="connection-pill online" id="connectionPill">
+          <span></span>
+          <b>Online</b>
+        </div>
+
+        <button class="icon-btn" id="modeToggle" title="Toggle online/offline">
+          ⇄
+        </button>
+
+        <button class="icon-btn notification-btn" id="notifyBtn">
+          ♧<em></em>
+        </button>
+
+        <div class="top-avatar">SO</div>
+
+      </div>
+
+    </header>
+
+    <!-- OVERVIEW -->
+    <section class="view active" id="view-overview">
+
+      <div class="welcome-row">
+        <div>
+          <h2>Business overview</h2>
+          <p>Here's what's happening across your store today.</p>
+        </div>
+
+        <div class="date-chip">
+          ◷ &nbsp; Today, 24 Nov 2026
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Net revenue</span>
+            <span class="kpi-icon mint">↗</span>
+          </div>
+          <strong id="kpiRevenue">KSh 0</strong>
+          <small class="positive">● Live sales total</small>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Cost of goods</span>
+            <span class="kpi-icon blue">◈</span>
+          </div>
+          <strong id="kpiCogs">KSh 0</strong>
+          <small>Recorded sale costs</small>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Gross profit</span>
+            <span class="kpi-icon violet">⌁</span>
+          </div>
+          <strong id="kpiProfit">KSh 0</strong>
+          <small>Revenue less COGS</small>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Outstanding debt</span>
+            <span class="kpi-icon amber">◷</span>
+          </div>
+          <strong id="kpiDebt">KSh 0</strong>
+          <small>Customer credit ledger</small>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Transactions</span>
+            <span class="kpi-icon pink">▣</span>
+          </div>
+          <strong id="kpiTransactions">0</strong>
+          <small>Completed sales</small>
+        </article>
+
+      </div>
+
+      <div class="dashboard-grid">
+
+        <article class="panel sales-panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Sales performance</h3>
+              <p>Revenue overview · all time</p>
+            </div>
+            <span class="subtle-tag">KES</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="salesChart" height="210"></canvas>
+          </div>
+
+          <div class="chart-legend">
+            <span><i class="legend-dot"></i> Revenue</span>
+            <span>Daily transaction value</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Payment mix</h3>
+              <p>How customers pay</p>
+            </div>
+          </div>
+
+          <div id="paymentMix" class="payment-mix"></div>
+
+          <div class="mix-total" id="mixTotal">
+            KSh 0
+            <small>total collected</small>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Low stock watch</h3>
+              <p>Products that need attention</p>
+            </div>
+
+            <button class="text-btn" data-goto="inventory">
+              View inventory →
+            </button>
+          </div>
+
+          <div id="lowStockList" class="compact-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Recent transactions</h3>
+              <p>Latest activity in your store</p>
+            </div>
+
+            <button class="text-btn" data-goto="analytics">
+              View all →
+            </button>
+          </div>
+
+          <div id="recentSales" class="compact-list"></div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- POS CHECKOUT -->
+    <section class="view" id="view-checkout">
+
+      <div class="welcome-row">
+        <div>
+          <h2>Point of sale</h2>
+          <p>Search products, build a basket and complete checkout.</p>
+        </div>
+
+        <span class="date-chip">⌁ Fast checkout</span>
+      </div>
+
+      <div class="pos-layout">
+
+        <div class="pos-catalog panel">
+
+          <div class="catalog-toolbar">
+
+            <div class="search-box">
+              <span>⌕</span>
+              <input id="productSearch"
+                     placeholder="Search name, SKU or barcode…">
+            </div>
+
+            <button class="icon-btn" id="scanSim" title="Simulate barcode scan">
+              ▥
+            </button>
+
+          </div>
+
+          <div class="category-row" id="categoryFilters"></div>
+
+          <div class="product-grid" id="productGrid"></div>
+
+        </div>
+
+        <aside class="cart-panel panel">
+
+          <div class="cart-heading">
+            <div>
+              <h3>Current sale</h3>
+              <p id="cartMeta">0 items in basket</p>
+            </div>
+
+            <button class="text-btn danger-text" id="clearCart">
+              Clear
+            </button>
+          </div>
+
+          <div class="cart-lines" id="cartLines">
+            <div class="empty-state">
+              Your basket is empty.
+              <br>
+              <small>Select a product to get started.</small>
+            </div>
+          </div>
+
+          <div class="cart-summary">
+
+            <div class="inline-field">
+              <label for="discountInput">Discount (KSh)</label>
+              <input id="discountInput" type="number" min="0" value="0">
+            </div>
+
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <b id="cartSubtotal">KSh 0</b>
+            </div>
+
+            <div class="summary-line">
+              <span>VAT (16% included)</span>
+              <b id="cartTax">KSh 0</b>
+            </div>
+
+            <div class="summary-line total-line">
+              <span>Total due</span>
+              <strong id="cartTotal">KSh 0</strong>
+            </div>
+
+            <label class="field-label" for="checkoutCustomer">
+              Customer (optional)
+            </label>
+
+            <select id="checkoutCustomer">
+              <option value="">Walk-in customer</option>
+            </select>
+
+            <div class="checkout-actions">
+              <button class="btn btn-secondary" id="debtCheckout">
+                Take on credit
+              </button>
+
+              <button class="btn btn-primary" id="payCheckout">
+                Charge payment →
+              </button>
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+    <!-- M-PESA FEED -->
+    <section class="view" id="view-payments">
+
+      <div class="welcome-row">
+        <div>
+          <h2>Live M-Pesa payments</h2>
+          <p>Incoming Paybill and Till transactions, ready to match.</p>
+        </div>
+
+        <button class="btn btn-primary" id="simulatePayment">
+          ＋ Simulate incoming payment
+        </button>
+      </div>
+
+      <div class="feed-stats">
+
+        <div class="panel">
+          <small>Incoming today</small>
+          <strong id="feedToday">KSh 0</strong>
+        </div>
+
+        <div class="panel">
+          <small>Unmatched payments</small>
+          <strong id="unmatchedCount">0</strong>
+        </div>
+
+        <div class="panel">
+          <small>Matched payments</small>
+          <strong id="matchedCount">0</strong>
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <div class="panel-heading">
+          <div>
+            <h3>Incoming transaction feed</h3>
+            <p>Payments appear here as soon as the browser receives an event.</p>
+          </div>
+
+          <span class="live-label"><i></i> LISTENING</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Transaction</th>
+                <th>Account</th>
+                <th>Amount</th>
+                <th>Received</th>
+                <th>Status / action</th>
+              </tr>
+            </thead>
+
+            <tbody id="paymentRows"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="integration-note">
+        <b>Integration status</b>
+
+        <p>
+          BroadcastChannel listener is active in this browser.
+          A production Daraja webhook must be received by a secure server
+          and forwarded to this POS session.
+        </p>
+
+        <code>
+          window.dispatchEvent(new CustomEvent('omnipos:mpesa', { detail: payment }))
+        </code>
+      </div>
+
+    </section>
+
+    <!-- INVENTORY -->
+    <section class="view" id="view-inventory">
+
+      <div class="welcome-row">
+        <div>
+          <h2>Inventory management</h2>
+          <p>Keep stock, batches and expiry dates under control.</p>
+        </div>
+
+        <button class="btn btn-primary" id="addProductBtn">
+          ＋ Add / restock product
+        </button>
+      </div>
+
+      <div class="inventory-summary" id="inventorySummary"></div>
+
+      <div class="panel">
+
+        <div class="panel-heading">
+          <div>
+            <h3>Product catalogue</h3>
+            <p>Track cost, retail price, availability and expiry.</p>
+          </div>
+
+          <div class="search-box compact-search">
+            <span>⌕</span>
+            <input id="inventorySearch" placeholder="Find a product…">
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>SKU / batch</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Cost</th>
+                <th>Price</th>
+                <th>Expiry</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody id="inventoryRows"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CUSTOMERS AND CREDIT -->
+    <section class="view" id="view-customers">
+
+      <div class="welcome-row">
+        <div>
+          <h2>Customers & credit ledger</h2>
+          <p>Manage customer accounts, debt balances and repayments.</p>
+        </div>
+
+        <button class="btn btn-primary" id="addCustomerBtn">
+          ＋ Register customer
+        </button>
+      </div>
+
+      <div class="feed-stats">
+
+        <div class="panel">
+          <small>Registered customers</small>
+          <strong id="customerCount">0</strong>
+        </div>
+
+        <div class="panel">
+          <small>Customers with debt</small>
+          <strong id="debtorsCount">0</strong>
+        </div>
+
+        <div class="panel">
+          <small>Total outstanding</small>
+          <strong id="customerDebtTotal">KSh 0</strong>
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <div class="panel-heading">
+          <div>
+            <h3>Customer accounts</h3>
+            <p>Credit limit, amount owed and repayment history.</p>
+          </div>
+
+          <div class="search-box compact-search">
+            <span>⌕</span>
+            <input id="customerSearch" placeholder="Search customer or phone…">
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Credit limit</th>
+                <th>Current debt</th>
+                <th>Due date</th>
+                <th>Account</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="customerRows"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="panel sms-panel">
+
+        <div class="panel-heading">
+          <div>
+            <h3>SMS notification centre</h3>
+            <p>Preview and audit automatically generated customer messages.</p>
+          </div>
+
+          <span class="subtle-tag">SIMULATED DELIVERY</span>
+        </div>
+
+        <div id="smsLogs" class="sms-list"></div>
+
+      </div>
+
+    </section>
+
+    <!-- ANALYTICS -->
+    <section class="view" id="view-analytics">
+
+      <div class="welcome-row">
+        <div>
+          <h2>Business analytics</h2>
+          <p>Understand sales, margins and payment performance.</p>
+        </div>
+
+        <button class="btn btn-secondary" id="exportCsv">
+          ↓ Export sales CSV
+        </button>
+      </div>
+
+      <div class="kpi-grid analytics-kpis">
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Revenue</span>
+            <span class="kpi-icon mint">↗</span>
+          </div>
+          <strong id="aRevenue">KSh 0</strong>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>COGS</span>
+            <span class="kpi-icon blue">◈</span>
+          </div>
+          <strong id="aCogs">KSh 0</strong>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Gross margin</span>
+            <span class="kpi-icon violet">⌁</span>
+          </div>
+          <strong id="aMargin">0%</strong>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Average sale</span>
+            <span class="kpi-icon amber">◷</span>
+          </div>
+          <strong id="aAverage">KSh 0</strong>
+        </article>
+
+      </div>
+
+      <div class="panel">
+
+        <div class="panel-heading">
+          <div>
+            <h3>Sales ledger</h3>
+            <p>Completed sales and credit transactions.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Receipt</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Payment</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+
+            <tbody id="salesRows"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- TOAST NOTIFICATIONS -->
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+
+  <section class="modal" id="modal" role="dialog" aria-modal="true">
+
+    <div class="modal-head">
+
+      <div>
+        <h3 id="modalTitle">Dialog</h3>
+        <p id="modalSubtitle"></p>
+      </div>
+
+      <button class="icon-btn" id="modalClose">×</button>
+
+    </div>
+
+    <div id="modalBody"></div>
+
+  </section>
+
+</div>
+
+<!-- PRINT RECEIPT -->
+<div id="receiptPrint" class="receipt-print"></div>
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>
