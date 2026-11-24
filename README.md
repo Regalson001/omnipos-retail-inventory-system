@@ -1,101 +1,122 @@
-A modern retail Point of Sale (POS), inventory management and customer credit management application.
+<p align="center">
+  <strong>One platform. Every sale. Complete control.</strong>
+</p>
 
-Built with HTML5, modern CSS3 and modular Vanilla JavaScript ES6+.
+<p align="center">
+  Empowering modern retailers with smarter sales, seamless inventory management, and data-driven business insights.
+</p>
 
-## Repository
+<p align="center">
+  <img src="assets/logo.svg" alt="OmniPOS Logo" width="110" />
+</p>
 
-omnipos-retail-inventory-system
+<p align="center">
+  <strong>A modern retail management and Point-of-Sale experience built for smarter business operations.</strong>
+</p>
 
-## Technology Stack
+---
 
-- HTML5
-- CSS3
-- JavaScript ES6+
-- LocalStorage API
-- BroadcastChannel API
-- SVG
-- HTML Canvas API
+## Overview
+
+**OmniPOS** is a modern, responsive Omnichannel Retail and Inventory Management System designed to simplify retail operations through a unified, intuitive dashboard.
+
+The platform brings essential retail workflows together, helping businesses manage product inventory, process sales, monitor stock levels, track customers, manage outstanding balances, and understand business performance.
+
+Built using HTML5, modern CSS3, and vanilla JavaScript, OmniPOS demonstrates how lightweight web technologies can deliver a polished, efficient, and feature-rich retail management experience.
+
+Whether managing a small retail shop or exploring modern retail technology, OmniPOS showcases a smarter approach to everyday business operations.
+
+## Why OmniPOS?
+
+Retail businesses need more than a basic checkout interface. They need visibility, control, and reliable information to make better operational decisions.
+
+OmniPOS brings these capabilities together in one streamlined platform.
+
+### Key Business Benefits
+
+**1. Business Efficiency**
+
+Simplifies everyday retail activities by bringing sales, inventory, customer records, and business operations into one accessible interface.
+
+**2. Intelligent Inventory Visibility**
+
+Monitor stock quantities, identify low-stock products, track product batches, and receive expiry-date warnings to support better inventory control.
+
+**3. Sales Intelligence**
+
+Explore sales performance, revenue trends, and business activity through an analytics-focused dashboard.
+
+**4. Customer Management**
+
+Maintain customer records, monitor outstanding balances, and manage customer credit transactions.
+
+**5. Modern Checkout Experience**
+
+Manage shopping carts, adjust product quantities, calculate totals, process simulated payment transactions, and generate printable receipts.
+
+**6. Modern User Experience**
+
+Work with a clean, responsive dashboard featuring intuitive navigation, organized information, and a modern retail technology aesthetic.
+
+---
 
 ## Core Features
 
-### 1. Point of Sale
+| Feature | Description |
+|---|---|
+| Product Management | Manage products, pricing, and stock quantities |
+| Inventory Tracking | Monitor stock levels and product availability |
+| Low-Stock Alerts | Identify products requiring restocking |
+| Expiry Monitoring | Track product expiry and batch information |
+| Point of Sale | Add products to carts and process sales |
+| Shopping Cart | Manage quantities, items, and checkout totals |
+| Payment Simulation | Demonstrate cash and simulated M-Pesa payment workflows |
+| Digital Receipts | Generate and print transaction receipts |
+| Customer Management | Maintain customer records |
+| Credit Tracking | Monitor customer balances and outstanding payments |
+| Sales Analytics | Review sales activity and business performance |
+| Dashboard | Access key business information in one place |
+| Local Data Persistence | Retain application data using browser LocalStorage |
+| Responsive Interface | Adapt the interface to different screen sizes |
+| Dark/Light Mode | Switch between dashboard appearance modes |
 
-- Product catalogue.
-- Product search.
-- SKU and barcode simulation.
-- Category filters.
-- Shopping cart.
-- Quantity management.
-- Discounts.
-- VAT calculations.
-- Cash, M-Pesa simulation and card payment options.
-- Printable receipts.
-- Automatic stock deduction.
+---
 
-### 2. M-Pesa Payment Feed
+## Technology Stack
 
-- Incoming Paybill and Till transaction simulation.
-- Customer name and phone number.
-- Transaction codes.
-- Payment amount.
-- Payment timestamp.
-- Account number.
-- BroadcastChannel communication.
-- Custom browser payment events.
-- Payment matching.
+OmniPOS is built with lightweight, modern web technologies without requiring external frontend frameworks or backend dependencies.
 
-### 3. Customer Credit Management
+### Frontend
 
-- Customer registration.
-- Customer phone numbers.
-- Credit limits.
-- Outstanding balances.
-- Repayment due dates.
-- Customer transaction history.
-- Full and partial repayments.
-- Unpaid debt purchase restrictions.
+- **HTML5** — Semantic application structure.
+- **CSS3** — Modern styling, layouts, responsive design, and visual components.
+- **JavaScript ES6+** — Application logic, state management, interactions, and business workflows.
 
-### 4. SMS Notification Centre
+### Browser Capabilities
 
-- Credit purchase SMS previews.
-- Outstanding debt reminders.
-- Repayment confirmations.
-- SMS audit logs.
+- LocalStorage for local data persistence.
+- Canvas API for dashboard visualizations.
+- Browser printing for printable receipts.
+- Responsive CSS Grid and Flexbox layouts.
 
-### 5. Inventory Management
+### Development Tools
 
-- Product catalogue.
-- Cost and selling prices.
-- Stock quantities.
-- Restocking.
-- SKU management.
-- Batch numbers.
-- Expiry warnings.
-- Low stock alerts.
+- Visual Studio Code
+- Git
+- GitHub
+- Modern web browsers
 
-### 6. Analytics
+---
 
-- Revenue.
-- Cost of goods sold.
-- Gross profit.
-- Gross margin.
-- Outstanding debt.
-- Transactions.
-- Payment breakdown.
-- Sales CSV export.
+## Application Architecture
 
-### 7. Application Infrastructure
+The project uses a modular frontend structure to separate application responsibilities and improve maintainability.
 
-- LocalStorage persistence.
-- Online/offline mode.
-- Offline change queue.
-- Responsive layouts.
-- Dark/light appearance.
-
-## Project Structure
-
+```text
 omnipos-retail-inventory-system/
-
+│
+├── index.html
+│
 ├── assets/
 │   └── logo.svg
 │
@@ -115,72 +136,211 @@ omnipos-retail-inventory-system/
 │   ├── analytics.js
 │   └── app.js
 │
-├── index.html
 ├── README.md
 └── .gitignore
+```
 
-## Installation
+---
 
-Clone the repository:
+## Getting Started
 
+Follow these steps to run OmniPOS locally.
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Regalson001/omnipos-retail-inventory-system.git
+```
 
-Navigate into the project:
+### 2. Navigate into the Project
 
+```bash
 cd omnipos-retail-inventory-system
+```
 
-## Run the application
+### 3. Open in Visual Studio Code
+
+```bash
+code .
+```
+
+### 4. Start a Local Development Server
 
 Using Python:
 
+```bash
 python -m http.server 8000
+```
 
-Open:
+### 5. Open in Your Browser
 
+Visit:
+
+```text
 http://localhost:8000
+```
 
-Alternatively, use the VS Code Live Server extension.
+Alternatively, open the project using the VS Code Live Server extension.
 
-## Demo Data
+---
 
-The application includes sample products and customer accounts.
+## How OmniPOS Works
 
-All demo application state is stored in browser LocalStorage.
+The application brings together several essential retail workflows:
 
-## M-Pesa Integration
+1. **Inventory Management:** View products, monitor quantities, and identify low-stock items.
+2. **Sales Processing:** Select products, manage cart quantities, and calculate checkout totals.
+3. **Payment Workflow:** Select cash or simulated M-Pesa payment and view transaction feedback.
+4. **Receipt Generation:** Produce a printable receipt after a transaction.
+5. **Customer Management:** Maintain customer information and track outstanding credit.
+6. **Business Analytics:** Review sales information and performance indicators.
 
-The current implementation simulates incoming M-Pesa transactions.
+---
 
-A production integration requires:
+## Screenshots & Application Preview
 
-- Safaricom Daraja API.
-- Secure backend webhook endpoint.
-- Callback verification.
-- Transaction validation.
-- Duplicate transaction protection.
-- Authenticated POS event delivery.
+Screenshots of the dashboard, inventory management, point-of-sale interface, checkout experience, and analytics can be added here.
 
-Never expose M-Pesa API secrets in frontend JavaScript.
+Suggested screenshot structure:
 
-## SMS Integration
+```text
+screenshots/
+├── dashboard.png
+├── inventory.png
+├── point-of-sale.png
+├── checkout.png
+└── analytics.png
+```
 
-SMS notifications are generated as previews and saved in the SMS log.
+Add screenshots to this directory and embed them below:
 
-Real SMS delivery requires a server-side SMS gateway integration.
+```markdown
+![OmniPOS Dashboard](screenshots/dashboard.png)
 
-## Production Roadmap
+![Inventory Management](screenshots/inventory.png)
 
-- Python FastAPI backend.
-- PostgreSQL database.
-- Safaricom Daraja integration.
-- Real SMS gateway.
-- User authentication.
-- Role-based access control.
-- Multi-branch inventory.
-- Cloud synchronization.
-- Automated reporting.
-- Audit logging.
+![Point of Sale](screenshots/point-of-sale.png)
+
+![Sales Analytics](screenshots/analytics.png)
+```
+
+---
+
+## Design Philosophy
+
+OmniPOS follows a modern SaaS-inspired design approach focused on usability, clarity, and operational efficiency.
+
+Key design principles include:
+
+- Clean and intuitive dashboard layouts.
+- Consistent spacing and visual hierarchy.
+- Responsive CSS Grid and Flexbox architecture.
+- Reusable interface components.
+- Accessible and readable typography.
+- Modern light and dark themes.
+- Clear visual feedback for important actions.
+- Minimal friction across common retail workflows.
+
+The goal is to make everyday retail management more accessible and efficient.
+
+---
+
+## Project Scope & Limitations
+
+OmniPOS is currently a frontend demonstration and does not connect to a production backend.
+
+The following capabilities are simulated or browser-based:
+
+- **M-Pesa:** Simulated payment workflow; no live Safaricom Daraja API connection.
+- **SMS Notifications:** Demonstration functionality; no actual SMS gateway integration.
+- **Data Storage:** Browser LocalStorage; no centralized database or cross-device synchronization.
+- **Authentication:** No production-grade authentication or role-based access control.
+- **Offline Synchronization:** Local demonstration behavior; no remote server synchronization.
+
+For production deployment, these capabilities would require secure backend services and appropriate integrations.
+
+---
+
+## Future Development Roadmap
+
+OmniPOS is designed with room for expansion into a complete retail management platform.
+
+Potential future improvements include:
+
+- [ ] Python FastAPI backend.
+- [ ] PostgreSQL database integration.
+- [ ] Secure authentication and role-based access control.
+- [ ] Live Safaricom Daraja M-Pesa integration.
+- [ ] Real SMS notifications through an SMS gateway.
+- [ ] Multi-store and multi-branch management.
+- [ ] Cloud-based data synchronization.
+- [ ] Advanced inventory forecasting.
+- [ ] Supplier and purchase-order management.
+- [ ] Advanced business intelligence and reporting.
+- [ ] Docker containerization.
+- [ ] AWS cloud deployment.
+
+---
+
+## Who Can Benefit From OmniPOS?
+
+OmniPOS demonstrates workflows relevant to:
+
+- Retail shops and small businesses.
+- Supermarkets and convenience stores.
+- Inventory-focused businesses.
+- Retail technology startups.
+- Business owners exploring digital retail solutions.
+- Developers interested in POS and inventory applications.
+
+Its current implementation is a frontend demonstration, not a certified or production-ready retail transaction system.
+
+---
+
+## Contributing
+
+Contributions, ideas, feedback, and improvements are welcome.
+
+To contribute:
+
+1. Fork this repository.
+2. Create a feature branch.
+3. Implement your changes.
+4. Commit your improvements.
+5. Submit a Pull Request.
+
+```bash
+git checkout -b feature/your-feature-name
+git add .
+git commit -m "Add your feature"
+git push origin feature/your-feature-name
+```
+
+---
+
+## Author
+
+**Stephen Oyugi**
+
+Frontend Developer | AI Automation Engineer | Machine Learning Enthusiast
+
+- GitHub: [@Regalson001](https://github.com/Regalson001)
+- LinkedIn: [Stephen Oyugi](https://linkedin.com/in/stephenoyugi001)
+
+---
 
 ## License
 
-Choose an appropriate license before public distribution.
+This project is available under the MIT License.
+
+See the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <strong>OmniPOS — One platform. Every sale. Complete control.</strong>
+</p>
+
+<p align="center">
+  Built to make modern retail operations smarter, simpler, and more efficient.
+</p>
